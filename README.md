@@ -1,64 +1,291 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🌐 Network Billing System
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A comprehensive Laravel-based billing and management system designed specifically for network service providers in Chogoria, Kenya. This system streamlines client management, service provisioning, billing, and network monitoring for ISPs and network companies.
 
-## About Laravel
+## 🚀 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Core Modules
+- **🔐 Super Admin Authentication & Authorization** - Role-based access control with Spatie Permissions
+- **📊 Dashboard & Analytics** - Real-time KPIs, revenue tracking, and performance metrics
+- **👥 Client Management** - Complete customer lifecycle management
+- **🖥️ Device Management** - Network infrastructure monitoring (routers, switches, access points)
+- **📦 Service Plans & Packages** - Flexible internet service offerings
+- **🧾 Billing & Invoicing** - Automated billing cycles and invoice generation
+- **💳 Payment Processing** - Multiple payment methods and tracking
+- **📡 Network Monitoring** - Usage tracking and performance monitoring
+- **📈 Reports & Analytics** - Comprehensive reporting suite
+- **🎫 Support Ticketing System** - Customer support management
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Key Capabilities
+- **Automated Billing Cycles** - Monthly, quarterly, and annual billing
+- **Usage Monitoring** - Real-time data usage tracking
+- **Payment Integration** - Support for multiple payment gateways
+- **Device Discovery** - Automatic network device detection
+- **Customer Portal** - Self-service client interface
+- **SMS & Email Notifications** - Automated communication
+- **Multi-tenant Support** - Scalable architecture
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Technical Stack
 
-## Learning Laravel
+- **Framework:** Laravel 10.x
+- **Database:** MySQL 8.0+
+- **Frontend:** Blade Templates with Bootstrap 5 & Tailwind CSS
+- **Authentication:** Laravel Sanctum/Passport
+- **Permissions:** Spatie Laravel Permission
+- **Queue System:** Laravel Queues with Redis
+- **Notifications:** Laravel Notifications (Email, SMS)
+- **Payment Gateway:** Stripe, M-Pesa, Bank Transfer
+- **Monitoring:** Laravel Telescope (Development)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📋 Requirements
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **PHP:** 8.1 or higher
+- **MySQL:** 8.0 or higher
+- **Composer:** Latest version
+- **Node.js:** 16.x or higher (for asset compilation)
+- **Web Server:** Apache/Nginx
+- **Extensions:** BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
 
-## Laravel Sponsors
+## 🚀 Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-repo/network-billing-system.git
+cd network-billing-system
+```
 
-### Premium Partners
+### 2. Install Dependencies
+```bash
+composer install
+npm install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### 3. Environment Setup
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Contributing
+### 4. Database Configuration
+Update your `.env` file with database credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=billing_system
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 5. Create Database
+```bash
+mysql -u root -p -e "CREATE DATABASE billing_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+```
 
-## Code of Conduct
+### 6. Run Migrations & Seeders
+```bash
+php artisan migrate --seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 7. Generate Application Key & Storage Link
+```bash
+php artisan key:generate
+php artisan storage:link
+```
 
-## Security Vulnerabilities
+### 8. Start Development Server
+```bash
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Visit `http://127.0.0.1:8000` in your browser.
 
-## License
+## 🔑 Default Credentials
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+After running the seeders, you can login with:
+
+- **Email:** admin@chogoria-network.com
+- **Password:** password123
+
+⚠️ **Important:** Change these credentials immediately in production!
+
+## 📊 Database Schema
+
+### Core Tables
+- `users` - System users and admins
+- `clients` - Customer information
+- `service_plans` - Internet service packages
+- `client_subscriptions` - Client service subscriptions
+- `devices` - Network equipment tracking
+- `invoices` - Billing records
+- `payments` - Payment transactions
+- `tickets` - Support requests
+- `network_usages` - Data usage tracking
+
+### Relationships
+- Clients have multiple subscriptions
+- Subscriptions belong to service plans
+- Invoices are generated from subscriptions
+- Payments are linked to invoices
+- Devices can be assigned to clients
+
+## 🎯 Usage
+
+### Admin Dashboard
+Access comprehensive analytics including:
+- Monthly revenue reports
+- Active client statistics
+- Network usage metrics
+- Outstanding invoices
+- Support ticket status
+
+### Client Management
+- Add/edit client information
+- Manage service subscriptions
+- Track payment history
+- Monitor data usage
+- Handle support requests
+
+### Billing Operations
+- Generate invoices automatically
+- Process payments
+- Send payment reminders
+- Track outstanding balances
+- Generate financial reports
+
+### Network Monitoring
+- Monitor device status
+- Track bandwidth usage
+- Generate usage reports
+- Set usage alerts
+- Manage network topology
+
+## 🔧 Configuration
+
+### Payment Gateways
+Configure payment methods in `config/services.php`:
+
+```php
+'stripe' => [
+    'model' => App\Models\Client::class,
+    'key' => env('STRIPE_KEY'),
+    'secret' => env('STRIPE_SECRET'),
+],
+
+'mpesa' => [
+    'consumer_key' => env('MPESA_CONSUMER_KEY'),
+    'consumer_secret' => env('MPESA_CONSUMER_SECRET'),
+    'passkey' => env('MPESA_PASSKEY'),
+],
+```
+
+### Email Configuration
+Update `.env` for email notifications:
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=your-smtp-server
+MAIL_PORT=587
+MAIL_USERNAME=your-email
+MAIL_PASSWORD=your-password
+MAIL_ENCRYPTION=tls
+```
+
+### Queue Configuration
+For background jobs (recommended for production):
+```env
+QUEUE_CONNECTION=redis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+```
+
+## 📱 API Documentation
+
+The system provides RESTful APIs for:
+- Client management
+- Invoice operations
+- Payment processing
+- Device monitoring
+- Usage tracking
+
+API endpoints are available at `/api/*` with proper authentication.
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+php artisan test
+```
+
+Run specific test categories:
+```bash
+php artisan test --filter=ClientTest
+php artisan test --filter=InvoiceTest
+php artisan test --filter=PaymentTest
+```
+
+## 🚀 Deployment
+
+### Production Setup
+1. Set `APP_ENV=production` in `.env`
+2. Set `APP_DEBUG=false`
+3. Configure proper database credentials
+4. Set up SSL certificates
+5. Configure web server (Apache/Nginx)
+6. Set up cron jobs for scheduled tasks
+7. Configure queue workers
+8. Set up monitoring and logging
+
+### Cron Jobs
+Add to your server's crontab:
+```bash
+* * * * * cd /path/to/your/project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+### Queue Workers
+Set up queue workers for background processing:
+```bash
+php artisan queue:work --daemon
+```
+
+## 🔒 Security
+
+- All forms use CSRF protection
+- Database queries use Eloquent ORM (SQL injection protection)
+- User input is validated and sanitized
+- Role-based access control implemented
+- API endpoints require authentication
+- Password hashing with bcrypt
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+For support and questions:
+- **Email:** support@chogoria-network.com
+- **Documentation:** [Wiki](https://github.com/your-repo/network-billing-system/wiki)
+- **Issues:** [GitHub Issues](https://github.com/your-repo/network-billing-system/issues)
+
+## 🔄 Changelog
+
+### Version 1.0.0 (2025-07-03)
+- Initial release
+- Core billing functionality
+- Client management system
+- Payment processing
+- Network device monitoring
+- Support ticket system
+
+---
+
+**Built with ❤️ for Network Service Providers in Kenya**
